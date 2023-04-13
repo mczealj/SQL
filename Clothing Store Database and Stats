@@ -1,0 +1,30 @@
+--Create a clothing store database
+
+CREATE table store (id integer primary key, name text, fabric text, quantity integer, price integer);
+
+INSERT into store VALUES
+(1, 'shirt', 'cotton', 20, 5.99),
+(2, 'skirt', 'cotton', 16, 5.99),
+(3, 'tshirt', 'cotton', 25, 2.99),
+(4, 'dress', 'cotton', 15, 10.99),
+(5, 'pants', 'cotton', 30, 15.99),
+(6, 'jacket', 'cotton', 6, 25.99),
+(7, 'sweater', 'cotton', 10, 15.00),
+(8, 'jeans', 'denim', 40, 25.99),
+(9, 'coat', 'cotton', 21, 30.00),
+(10, 'shorts', 'cotton', 20, 10.00),
+(11, 'blouse', 'silk', 20, 8.00),
+(12, 'intimates', 'cotton', 35, 2.00),
+(13, 'sock', 'cotton', 40, 2.00),
+(14, 'shoes', 'leather', 40, 15.99),
+(15, 'hat', 'cotton', 15, 10.99)
+;
+
+--what is the total price amount of inventory?
+SELECT SUM (quantity) From store;
+
+--what items in the store have more than 10 available?
+SELECT * From store Where quantity > 10 Order by name;
+
+--the total amount of each fabric in the store.
+SELECT fabric, SUM (quantity) From store Group by fabric;
