@@ -1,0 +1,33 @@
+/* Creating a table to display famous singers.  What songs they performed, where they are from, and what Grammy awards they received*/
+
+
+Create Table singers (id integer primary key autoincrement,name Text, song Text);
+
+Insert into singers (name, song) Values ('Beyonce', 'Crazy In Love');
+Insert into singers (name, song) Values ('Kelly Rowland', 'Dilemma');
+Insert into singers (name, song) Values ('Lady Gaga', 'Bad Romance');
+Insert into singers (name, song) Values ('Adele', 'Hello');
+Insert into singers (name, song) Values ('Mariah Carey', 'We Belong Together');
+
+
+Create Table awards (id integer primary key autoincrement, person_id Integer, hometown Text, grammy Text);
+
+Insert into awards (person_id, hometown, grammy) Values (1, 'Houston', 'Best R&B Song');
+Insert into awards (person_id, hometown, grammy) Values (2, 'Houston', 'Best Melodic Rap Performance');
+Insert into awards (person_id, hometown, grammy) Values (3, 'New York City', 'Best Female Pop Vocal Performance');
+Insert into awards (person_id, hometown, grammy) Values (4, 'Tottenham', 'Song of the Year');
+Insert into awards (person_id, hometown, grammy) Values (5, 'Huntington', 'Best R&B Song');
+
+
+/*Singers Hometown*/
+Select singers.name, awards.hometown 
+From singers
+Join awards
+On singers.id=awards.person_id;
+
+
+/*Name of singers who are from Houston and the name of the grammy received*/
+Select singers.name, singers.song, awards.hometown, awards.grammy From singers
+Join awards
+On singers.id=awards.person_id
+Where hometown='Houston';
